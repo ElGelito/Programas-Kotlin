@@ -12,7 +12,7 @@ class Ejercicio4_1 (var x:Int, var y:Int){
         if(x>0&&y>0) return "Se encuentra en el cuadrante 1"
         else if(x<0&&y>0) return "Se encuentra en el cuadrante 4"
             else if(x<0&&y<0) return "Se encuentra en el cuadrante 3"
-                else return "Se encuentra en el cuadrante 2"
+                else return "Se encuentra en el cuadrante 2211r4e"
     }
 
 }
