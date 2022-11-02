@@ -12,7 +12,34 @@ class Ejercicio4_1 (var x:Int, var y:Int){
         if(x>0&&y>0) return "Se encuentra en el cuadrante 1"
         else if(x<0&&y>0) return "Se encuentra en el cuadrante 4"
             else if(x<0&&y<0) return "Se encuentra en el cuadrante 3"
-                else return "Se encuentra en el cuadrante 2211r4e"
+                else return "Se encuentra en el cuadrante 2"
     }
 
+}
+class Ejercicio4_2(){
+    var x:Int=0
+    var y:Int=0
+    var trash:Int?=0
+
+    fun imprimir():String{
+        println("Introduce el valor de la coordenada X: ")
+        trash= readLine()?.toIntOrNull()
+        x=trash?:0
+
+        println("Introduce el valor de la coordenada Y: ")
+        trash= readLine()?.toIntOrNull()
+        y=trash?:0
+
+        if(x>0&&y>0) return "Se encuentra en el cuadrante 1"
+            else if(x<0&&y>0) return "Se encuentra en el cuadrante 4"
+                else if(x<0&&y<0) return "Se encuentra en el cuadrante 3"
+                    else return "Se encuentra en el cuadrante 2"
+    }
+}
+
+class Ejercicio4_3(var x:Int){
+    fun imprimir():String{
+        if(x>0) return "Se encuentra en el cuadrante 1"
+            else return "Se encuentra en el cuadrante 4"
+    }
 }

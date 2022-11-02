@@ -43,4 +43,15 @@ fun main() {
 //    prueba.a2=2
 
 
+    //EJercicio4
+   //val prueba1=Ejercicio4_1(20,-50)
+   //println(prueba1.imprimir())
+
+   // val prueba2=Ejercicio4_2()
+   // println(prueba2.imprimir())
+   //
+   // val prueba3=Ejercicio4_3(-80)
+   // println(prueba3.imprimir())
+    println(equipamiento)
+    println(texto)
 }

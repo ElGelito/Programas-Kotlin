@@ -207,3 +207,35 @@ class A{
 }
 
 
+sealed class Deporte(){
+
+    class run:Deporte();
+    class natacion:Deporte();
+    class ciclismo:Deporte();
+
+
+}
+
+val deporte:Deporte=Deporte.natacion()
+val equipamiento=when(deporte){
+    is Deporte.run->"Camisetas y zapatilla"
+    is Deporte.natacion->"Bañadores y toallas"
+    is Deporte.ciclismo->"Bicicletas y cascos"
+
+}
+
+
+
+sealed class Figura{
+    class Triangulo(val _l1:Int,val _l2:Int,val _l3:Int,):Figura()
+    class Cuadrado(val _l1:Int):Figura()
+    class Circulo(val _radio:Int):Figura()
+}
+
+val iFigura:Figura=Figura.Triangulo(4,5,9)
+val texto=when(iFigura){
+    is Figura.Triangulo->"Triangulo"
+    is Figura.Circulo->"Circulo"
+    is Figura.Cuadrado->"Cuadrado"
+    else ->"Sin definir"
+}
