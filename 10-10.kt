@@ -300,7 +300,27 @@ fun funcionExtendida(){
     println("La potencia de $numero a 2 = ${numero.potencia(2)}")
 }
 
-fun main(){
-    println(funcionExtendida())
+fun operar(_v1:Int,_v2:Int,fn:(Int,Int)->Int):Int{return fn(_v1,_v2)}
+fun suma(x1:Int,x2:Int)=x1+x2
+fun resta(x1:Int,x2:Int)=x1-x2
+fun multiplica(x1:Int,x2:Int)=x1*x2
+fun divide(x1:Int,x2:Int)=x1/x2
+
+fun ejemploFuncionOrdenSuperior(){
+    println("Ejemplo de Función de Orden Superior")
+    println("Teclee un numero1:")
+    var trash: Int? = readLine()?.toIntOrNull()
+    val numero1 = trash ?:0
+    println("Teclee numero2:")
+    trash = readLine()?.toIntOrNull()
+    val numero2 = trash ?:1
+    println("La suma de $numero1 + $numero2 = ${operar(numero1,numero2,::suma)}")
+    println("La resta de $numero1 - $numero2 = ${operar(numero1,numero2,::resta)}")
+    println("La multiplicacion de $numero1 * $numero2 = ${operar(numero1,numero2,::multiplica)}")
+    println("La division de $numero1 / $numero2 = ${operar(numero1,numero2,::divide)}")
 }
 
+fun main(){
+    //println(funcionExtendida())
+    println(ejemploFuncionOrdenSuperior())
+}
