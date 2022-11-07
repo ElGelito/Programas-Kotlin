@@ -3,6 +3,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*
 
+
 //Forma 1 de declararlo
 
 class coche (var Modelo:String, var numeroPuertas:Int, var numVelocidad:Int, var asientos:Int){
@@ -239,3 +240,67 @@ val texto=when(iFigura){
     is Figura.Cuadrado->"Cuadrado"
     else ->"Sin definir"
 }
+
+fun muestraMiNombre(nombre: String):Unit{
+    println("Me llamo $nombre")
+}
+
+fun muestraMiNombre(nombre: String,edad:String){
+    println("Mi nombre es: $nombre y mi edad es: $edad")
+}
+
+fun dividir(numero1:Int, numero2:Int=2)=numero1/numero2
+
+fun operacionDiv(){
+    val division1= dividir(20,5)
+    println("El resultado de la division 1 es: $division1")//El resultado de la division1  es 4
+
+    val division2= dividir(20)
+    println("El resultado de la division2 es $division2")//El resultado de la division1  es 10
+}
+
+fun muestrasMiNombre (nombre:String) : String{
+    val minombre="Me llamo $nombre"
+    return minombre
+}
+
+fun esPar(numero:Int):String{
+    return if(numero %2==0) "Numero $numero es par" else "Numero $numero es impar"
+}
+
+fun eliminaPares(numeros:List<Int>):List<Int>{
+    val resultado:MutableList<Int> = mutableListOf()
+    fun esPar(numero:Int):Boolean=(numero % 2 ==0)
+
+    for(numero in numeros){if (!esPar(numero)) {resultado.add(numero)}}
+    numeros.forEach{if (!esPar(it)){resultado.add(it)} }
+    return resultado
+
+}
+
+fun Int.multiplicar(numero:Int)=this * numero
+fun Int.potencia(pot:Int=2):Int{
+    var aux:Int=this
+    for (i in 2..pot) aux *= this
+    return aux
+}
+fun funcionExtendida(){
+    println("Ejemplo de Funcion Extendida")
+    println("Teclee numero")
+    var trash:Int?= readLine()?.toIntOrNull()
+    val numero:Int=trash?:1
+
+    println("teclee potencia")
+    trash= readLine()?.toIntOrNull()
+    val pot:Int=trash?:1
+
+    println("Multiplicar $numero * 5 = ${numero.multiplicar(5)}")
+    println("Multiplicar $numero * $numero = ${numero.multiplicar(numero)}")
+    println("La potencia de $numero a $pot = ${numero.potencia(pot)}")
+    println("La potencia de $numero a 2 = ${numero.potencia(2)}")
+}
+
+fun main(){
+    println(funcionExtendida())
+}
+
