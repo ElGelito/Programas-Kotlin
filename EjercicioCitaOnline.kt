@@ -19,15 +19,20 @@ A)Realice el estudio de la informacion, de acceso a datos e implementacion de la
 B)Realice la programacion del mismo (kotlin)
 
  */
+
 /*
 ------------------------------------------------ESTUDIO DE LA INFORMACION-----------------------------------------------
 
 
 Creariamos clase cita ()
 creariamos variable citacreada:Boolean=false
+creariamos lista de tipo clase cita
+añadiriamos las citas si la funcion confirmarcita=true, si no no la añadimos
 
 Cuando solicitas por internet y se confirma la cita->FuncionConfirmarCita(cita=true), cuando ejecutas el metodo si es correcto
 y la cita es=true, procederiamos a la creacion de las variables numeroaleatorio, fecha y horadecita
+
+
 
 
 ------------------------------------------------ESTUDIO DE LA INFORMACION-----------------------------------------------
@@ -38,30 +43,78 @@ y la cita es=true, procederiamos a la creacion de las variables numeroaleatorio,
 ---------------------------------------------PROGRAMACION---------------------------------------------------------------
  */
 fun main(){
-    val prueba=cita()
+    //val pruebaLista:MutableList <Int> = MutableList(100,{(Math.random()*100).toInt()})
 
-    prueba.funcionconfirmarcita()//si no se ejecuta esta funcion que nos permite confirmar la cita, no podemos otorgarle los datos puesto que la validacion esta incorrecta
 
-    prueba.otorgarDatos("Dia: 25/12/2022  hora: 16:49 ")
+    //CREACION LISTA DE CITAS
+    val listacitas= mutableListOf<cita>()
+    var listaOrdenada= listOf<cita>()
+
+    listaOrdenada=listacitas.sortedBy { cita ->cita.fecha  }
+
+    //CREACION DE OBJETOS DE TIPO CITA
+    val cita1=cita()
+    val cita2=cita()
+
+    //OTORGAR DATOS A LA CITAS
+    cita1.funcionconfirmarcita()//si no se ejecuta esta funcion que nos permite confirmar la cita, no podemos otorgarle los datos puesto que la validacion esta incorrecta
+    cita1.otorgarDatos(31,2,2022,16)
+
+    cita2.funcionconfirmarcita()
+    cita2.otorgarDatos(1,3,2022,17)
+
+    //VARIABLE PARA RECCORRER EL TAMAÑO DE LA LISTA
+    var i=0
+
+    //AÑADIR OBJETOS "CITA" A LA LISTA DE CITAS, SI LA CITA NO ESTA CONFIRMADA NO SE AÑADAE
+
+    if(cita1.citacreada){
+        listacitas.add(cita1)
+    } else{
+        println("No esta confirmada la cita")
+    }
+
+    if(cita2.citacreada){
+        listacitas.add(cita2)
+    } else{
+        println("No esta confirmada la cita")
+    }
+
+    //IMPRIMIR LAS
+    println("LISTA DE CITAS")
+    while(i<listacitas.size){
+        listacitas.elementAt(i).toString()
+        println(listacitas[i])
+        i++
+    }
+
+    //IMPRIMIR LAS
+    println("LISTA DE CITAS ORDENADAS")
+    while(i<listaOrdenada.size){
+        println(listaOrdenada.elementAt(i).toString())
+        println(listaOrdenada[i])
+        i++
+    }
+
 }
     class cita(){
         var citacreada:Boolean=false
         var numeroCita=(Math.random()*100).toInt()
+        var fecha=""
 
         fun funcionconfirmarcita(){
             citacreada=true
 
         }
-
-        fun otorgarDatos (fechaCita:String){
-
-            if(citacreada){
-               println("El numero de la cita es: $numeroCita y la fecha para la cita es: $fechaCita")
-
-            }else{
-                println("La cita no esta confirmada")
-            }
+        override fun toString(): String {
+            return "Numero cita $numeroCita y la fecha es $fecha "
         }
+
+        fun otorgarDatos (dia:Int,mes:Int,año:Int,hora:Int){
+            fecha="$dia/$mes/$año a las : $hora "
+        }
+
+
     }
 
 /*
